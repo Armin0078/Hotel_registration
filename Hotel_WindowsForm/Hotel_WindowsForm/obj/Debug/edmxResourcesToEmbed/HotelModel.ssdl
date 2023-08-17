@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Hotel_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Hotel_DB.dbo.AdminTable' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="AdminTable">
+    <Key>
+      <PropertyRef Name="UserName" />
+      <PropertyRef Name="PassWord" />
+    </Key>
+    <Property Name="UserName" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="PassWord" Type="nvarchar" MaxLength="250" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'Hotel_DB.dbo.Form' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Form">
+          <Property Name="Room" Type="nvarchar" MaxLength="250" />
+          <Property Name="Name" Type="nvarchar" MaxLength="250" />
+          <Property Name="Family" Type="nvarchar" MaxLength="250" />
+          <Property Name="FamilyCounts" Type="nvarchar" MaxLength="250" />
+          <Property Name="cost" Type="nvarchar" MaxLength="250" />
+          <Property Name="Full" Type="bit" />
+          <Property Name="day" Type="int" />
+          <Property Name="hour" Type="int" />
+        </EntityType>-->
+  <EntityContainer Name="Hotel_DBModelStoreContainer">
+    <EntitySet Name="AdminTable" EntityType="Self.AdminTable" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [AdminTable].[UserName] AS [UserName], 
+    [AdminTable].[PassWord] AS [PassWord]
+    FROM [dbo].[AdminTable] AS [AdminTable]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>
